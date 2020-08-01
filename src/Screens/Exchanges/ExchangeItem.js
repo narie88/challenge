@@ -15,7 +15,6 @@ const Descript = styled.p`
 	margin-bottom: 10px;
 	white-space: nowrap;
 `;
-
 const Linker = styled.a`
 	display: block;
 	margin-bottom: 20px;

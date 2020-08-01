@@ -7,16 +7,14 @@ import { getItem } from '../../api';
 export default class extends React.Component {
 	state = {
 		data: null,
-		name: null,
-		decription: null,
-		website: null,
 		error: null,
 		loading: true,
 	};
+
 	async componentDidMount() {
 		try {
 			const { data } = await getItem.exchangesApi();
-
+			// console.log(data);
 			this.setState({
 				data,
 			});
@@ -31,16 +29,7 @@ export default class extends React.Component {
 		}
 	}
 	render() {
-		const { data, name, description, website, error, loading } = this.state;
-		return (
-			<ExchangesPresenter
-				data={data}
-				description={description}
-				name={name}
-				website={website}
-				error={error}
-				loading={loading}
-			/>
-		);
+		const { data, error, loading } = this.state;
+		return <ExchangesPresenter data={data} error={error} loading={loading} />;
 	}
 }
